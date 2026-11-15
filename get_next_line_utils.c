@@ -10,6 +10,28 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
+char	*ft_strdup(const char *s)
+{
+	size_t	i;
+	size_t	len;
+	char	*copy;
+
+	if(!s)
+		return (NULL);
+	len = ft_strlen(s) + 1;
+	copy = malloc(len * sizeof(char));
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		copy[i] = s[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
+}
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;
@@ -34,74 +56,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-int is_line_finished(char *buff, int ret)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-    if(ret == 0)
-        return 1;
-    while(*buff)
-    {
-        if(*buff == '\n')
-           return 1; 
-        buff++;
-    }
-    return 0;
-}
+	size_t	i;
+	size_t	src_len;
 
-char* ft_empty_stash(char **stash)
-{
-    char *res;
-    size_t len;
-    size_t i;
-
-    len = 0;
-    while((*stash)[len])
-    {
-        len++;
-        if((*stash)[len] == '\n')
-        {
-            len++;
-            break;
-        }
-    }
-    res = malloc(sizeof(char) * (len + 1));
-    if(!res)
-        return NULL;
-    i = 0;
-    while(i < len)
-    {
-        res[i] = *(*stash)++;
-        i++;
-    }
-    res[i] = '\0';
-    return (res);
-}
-
-char *ft_fill_stash(int fd, int *offset)
-{
-    char *stash;
-    char *buff;
-    char *temp;
-    int ret;
-
-    buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-    if(!buff)
-        return (NULL);
-    stash = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-    if(!stash)
-        return (NULL);
-    stash[0] = '\0';
-    ret = 1;
-    while(!is_line_finished(buff, ret))
-    {
-        ret = read(fd, buff, BUFFER_SIZE);
-        if(ret == -1)
-            return NULL;
-        *offset += ret;
-        buff[ret] = '\0';
-        temp = stash;
-        stash = ft_strjoin(temp, buff);
-        free(temp);
-    }
-    free(buff);
-    return(stash);
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
+	i = 0;
+	while (i < size - 1 && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (src_len);
 }

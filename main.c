@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		printf("[%d]: %s", line_num++, line);
 		free(line);
 	}
+
 	if (argc == 2)
 		close(fd);
 	return (0);
