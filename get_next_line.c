@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 20:07:19 by irichi            #+#    #+#             */
+/*   Updated: 2026/11/16 20:08:32 by irichi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 int	is_line_finished(char *buff, int ret)
@@ -53,7 +65,6 @@ char	*ft_fill_stash(int fd, char *stash)
 		if (ret < 0)
 			return (free(buff), NULL);
 		buff[ret] = '\0';
-
 		temp = ft_strjoin(stash, buff);
 		free(stash);
 		stash = temp;

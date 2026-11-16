@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 20:07:16 by irichi            #+#    #+#             */
+/*   Updated: 2026/11/16 20:08:57 by irichi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
@@ -16,7 +28,7 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 	char	*copy;
 
-	if(!s)
+	if (!s)
 		return (NULL);
 	len = ft_strlen(s) + 1;
 	copy = malloc(len * sizeof(char));
