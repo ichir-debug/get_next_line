@@ -6,7 +6,7 @@
 /*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:13:42 by irichi            #+#    #+#             */
-/*   Updated: 2026/11/17 17:34:40 by irichi           ###   ########.fr       */
+/*   Updated: 2026/11/17 21:18:33 by irichi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*get_next_line_bonus(int fd);
 char	*ft_extract_line(char **stash);
-char	*ft_fill_stash(int fd, char *stash);
+char	*ft_fill_stash(int fd, char *stash, size_t buffer_size);
 int		is_line_finished(char *buff, int ret);
 
 #endif

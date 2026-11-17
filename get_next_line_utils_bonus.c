@@ -6,7 +6,7 @@
 /*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:14:10 by irichi            #+#    #+#             */
-/*   Updated: 2026/11/17 17:34:38 by irichi           ###   ########.fr       */
+/*   Updated: 2026/11/17 20:34:59 by irichi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strdup(const char *s)
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s) + 1;
-	copy = malloc(len);
+	copy = (char *)malloc(len);
 	if (!copy)
 		return (NULL);
 	i = 0;
@@ -52,7 +52,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	res = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!res)
 		return (NULL);
 	i = 0;
