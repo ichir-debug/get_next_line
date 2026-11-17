@@ -6,7 +6,7 @@
 /*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:07:19 by irichi            #+#    #+#             */
-/*   Updated: 2026/11/16 20:08:32 by irichi           ###   ########.fr       */
+/*   Updated: 2026/11/17 17:34:33 by irichi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*ft_extract_line(char **stash)
 		return (NULL);
 	ft_strlcpy(line, *stash, i + 1);
 	remaining = ft_strdup(*stash + i);
+	if (!remaining)
+		return (free(line), NULL);
 	free(*stash);
 	*stash = remaining;
 	return (line);
@@ -63,7 +65,7 @@ char	*ft_fill_stash(int fd, char *stash)
 	{
 		ret = read(fd, buff, BUFFER_SIZE);
 		if (ret < 0)
-			return (free(buff), NULL);
+			return (free(buff), free(stash), NULL);
 		buff[ret] = '\0';
 		temp = ft_strjoin(stash, buff);
 		free(stash);
@@ -80,10 +82,14 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!stash)
+	{
 		stash = ft_strdup("");
+		if (!stash)
+			return (NULL);
+	}
 	stash = ft_fill_stash(fd, stash);
 	if (!stash)
 		return (NULL);
