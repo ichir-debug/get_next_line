@@ -109,9 +109,9 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	if (!*stash)
-		return (free(stash), stash = NULL, NULL);
+		return (r1(stash, &stash));
 	line = ft_extract_line(&stash);
 	if (!line)
-		return (free(stash), stash = NULL, NULL);
+		return (r1(stash, &stash));
 	return (line);
 }

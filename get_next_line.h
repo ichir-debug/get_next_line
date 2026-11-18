@@ -27,6 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*get_next_line(int fd);
 char	*ft_extract_line(char **stash);
 char	*ft_fill_stash(int fd, char *stash, size_t buffer_size);
+char	*r1(char *s1, char **s2);
 int		is_line_finished(char *buff, int ret);
 
 #endif

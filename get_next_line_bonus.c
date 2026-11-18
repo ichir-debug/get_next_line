@@ -6,7 +6,7 @@
 /*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:12:56 by irichi            #+#    #+#             */
-/*   Updated: 2026/11/17 21:16:24 by irichi           ###   ########.fr       */
+/*   Updated: 2026/11/18 03:40:31 by irichi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*ft_fill_stash(int fd, char *stash, size_t buffer_size)
 	return (stash);
 }
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*stash[1024];
 	char		*line;
