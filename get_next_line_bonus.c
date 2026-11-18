@@ -6,7 +6,7 @@
 /*   By: irichi <irichi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:12:56 by irichi            #+#    #+#             */
-/*   Updated: 2026/11/18 03:40:31 by irichi           ###   ########.fr       */
+/*   Updated: 2026/11/18 04:08:37 by irichi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer_size = BUFFER_SIZE;
+	buffer_size = (size_t)BUFFER_SIZE;
 	if (!stash[fd])
 	{
 		stash[fd] = ft_strdup("");
